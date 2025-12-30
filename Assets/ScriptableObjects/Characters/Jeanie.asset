@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ffacb21173a82948a0cfdda62ea0a3d, type: 3}
+  m_Name: Jeanie
+  m_EditorClassIdentifier: 
+  characterID: 2
+  characterName: Jeanie
+  description: A spearwoman
+  portrait: {fileID: 3536838271663695531, guid: 5f1c35ce7c4f8af4d9dfba28096849f0, type: 3}
+  characterPrefab: {fileID: 7905986141702751442, guid: 6411eba6b6b27b5449806ef2b2a2491e, type: 3}

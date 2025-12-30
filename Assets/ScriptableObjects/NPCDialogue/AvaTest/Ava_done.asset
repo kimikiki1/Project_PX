@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcbf41069984956439c6e2410f5d1d2a, type: 3}
+  m_Name: Ava_done
+  m_EditorClassIdentifier: 
+  conversation:
+  - characterName: Joe
+    characterPortrait: {fileID: 2057516106615078274, guid: 69b214ccbfaedf04d992d924261f3da2, type: 3}
+    text: Here you go...
+  - characterName: Ava
+    characterPortrait: {fileID: -7593513710148612255, guid: 5e116ce8cc318d742bcb747ba7948e4c, type: 3}
+    text: Aye thanks. I'll treat you laksa sarawak later.
+  - characterName: Joe
+    characterPortrait: {fileID: -6981641179300335697, guid: df388bf19105c84408370401c93f502a, type: 3}
+    text: What even is Laksa Sarawak...?
+  givesQuest: 1
+  questItemName: Gem
+  questAmount: 2
+  questDescription: Collect all the yellow triangles
