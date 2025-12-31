@@ -1,39 +1,58 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement; // Required for switching scenes
 
 public class LevelManager : MonoBehaviour
 {
-    public GameObject winScreen;  // UI Panel for Winning
-    public GameObject loseScreen; // UI Panel for Game Over
-    private bool isGameOver = false;
+    [Header("UI Panels")]
+    public GameObject winPanel; // Drag your "Level Complete" panel here
 
-    public void LevelSolved()
+    private bool isLevelOver = false;
+
+    void Start()
     {
-        if (isGameOver) return; // Prevent double triggers
+        // Make sure the panel is hidden when the level starts
+        if (winPanel != null) winPanel.SetActive(false);
+    }
 
-        isGameOver = true;
-        winScreen.SetActive(true); // Show the "Victory" UI
-        Time.timeScale = 0f;       // Optional: Freeze the game world
+    // This is called by your Quest/Goal script
+    public void LevelComplete()
+    {
+        if (isLevelOver) return;
+        
+        isLevelOver = true;
         Debug.Log("Level Complete!");
+
+        // Show the panel
+        if (winPanel != null)
+        {
+            winPanel.SetActive(true);
+            
+            // If you have an Animator on the panel, it will play 
+            // its "Entry" animation automatically when SetActive is true
+        }
+
+        // Optional: Freeze the game so the player doesn't keep moving
+        // Time.timeScale = 0f; 
     }
 
-    public void GameOver()
+    // Triggered by the "Next Level" Button
+    public void LoadNextLevel()
     {
-        isGameOver = true;
-        loseScreen.SetActive(true);
-        Time.timeScale = 0f;
-    }
-
-    public void ReloadLevel()
-    {
-        Time.timeScale = 1f; // Always reset time scale
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    public void GoToNextLevel()
-    {
+        // Reset time if you froze it
         Time.timeScale = 1f;
+
+        // Get the next scene in the Build Settings list
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        SceneManager.LoadScene(nextSceneIndex);
+
+        // Check if a next scene actually exists
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+        }
+        else
+        {
+            Debug.Log("No more levels! Returning to Menu.");
+            SceneManager.LoadScene(0); // Load Main Menu
+        }
     }
 }
